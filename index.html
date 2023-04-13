@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+       <!-- make a signup for with name, email, password and a submit button -->
+        <form>
+            <fieldset>
+                <legend>Sign Up</legend>
+                <input type="text" name="name" placeholder="Name" id="name"> <br><br>
+                <input type="email" name="email" placeholder="Email" id="email"> <br><br>
+                <input type="password" name="password" placeholder="Password" id="password"> <br><br>
+                <input type="submit" value="Sign Up">
+           </fieldset>
+        </form>
+        <script>
+
+            let form = document.querySelector('form');
+             
+            form.addEventListener("submit", display)
+
+             function display(event){
+                event.preventDefault();
+                let name = document.querySelector('#name');
+                let email = document.querySelector('#email');
+                let password = document.querySelector('#password');
+
+                let div = document.createElement('div');
+                let h1 = document.createElement('h1');
+                h1.innerText = name.value
+                let p = document.createElement('p');
+                p.innerText = email.value
+                div.append(h1);
+                div.append(p);
+                div.style.cssText = `
+                background-color: #f1f1f1;
+                padding: 20px;
+                margin: 20px;
+                border-radius: 10px;
+                `
+                document.body.append(div);
+
+                name.value = '';
+                email.value = '';
+                password.value = '';
+
+
+             }
+
+
+        </script>
+</body>
+</html>
